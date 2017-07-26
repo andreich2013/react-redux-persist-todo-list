@@ -21,7 +21,7 @@
                "currencyCode":"USD"
             },
             "productImagePointer":{
-               "itemName":"main.jpg"
+               "itemName":"http://lorempixel.com/240/320"
             }
          },
          "createdAt":"2017-03-07T17:12:21.177Z"

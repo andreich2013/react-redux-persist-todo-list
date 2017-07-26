@@ -14,6 +14,18 @@ header {
   background: $color-blue;
 }
 
+a {
+  text-decoration: none;
+
+  &:active,
+  &:hover,
+  &:focus,
+  &:visited {
+    text-decoration: none;    
+  }
+
+}
+
 .offer-form {
   display: flex;
   flex-direction: column;
@@ -143,24 +155,50 @@ header {
 
   }
 
-  &__item {
+  &__items {
     display: flex;
-    flex-direction: row;
-    width: 100%;
-    min-height: 60px;
+    flex-container: row;
+    flex-wrap: wrap;
     justify-content: flex-start;
+  }
+
+  &__item,
+  &__item a {
+    display: flex;
+    flex-direction: column;
+    flex: 1 0 320px;
+    justify-content: space-between;
     align-content: stretch;
     align-items: stretch;
+    width: 240px;
+    max-width: 240px;
+    height: 320px;
+    margin: 0 20px 20px 0;
+    background-size: cover;
+    background-repeat: no-repeat;
 
-    &__cell {
+    &__name,
+    &__reduced-price {
       box-sizing: border-box;
       display: flex;
-      flex: 1 0 200px;
-      justify-content: flex-start;
+      flex: 1 0 basis;
+      justify-content: space-between;
       align-content: center;
       align-items: center;
-      padding: 0 10px;
+      padding: 10px;
+      background: rgba(0, 0, 0, 0.6);
+      color: #fff;
     }
+
+    &__price {
+      text-align: right;
+    }
+
+    &__reduced-price {
+      color: #FFEE58;
+      font-weight: bold;
+    }
+
   }
 
 }

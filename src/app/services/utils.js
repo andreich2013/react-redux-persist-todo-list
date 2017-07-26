@@ -10,7 +10,8 @@ const formFields = {
   name: {
     field: 'text',
     label: 'Name',
-    required: true
+    required: true,
+    maxLength: 16
   },
   amount: {
     field: 'number',
@@ -19,6 +20,11 @@ const formFields = {
   currency: {
     field: 'select',
     options: [
+      {
+        id: Guid.create().value,
+        value: null,
+        label: 'None'
+      },
       {
         id: Guid.create().value,
         value: 'USD',
@@ -159,8 +165,8 @@ export const formFieldMapping = {
   },
   'productImagePointer.itemName': {
     field: 'text',
-    label: 'Product image pointer name',
-    pattern: REGEXP.imageName,
+    label: 'Product image pointer url',
+    pattern: REGEXP.url,
     required: true
   }
 };

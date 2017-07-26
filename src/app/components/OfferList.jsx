@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
+import OfferListItem from './OfferListItem.jsx'
+
 
 export default class extends Component {
 
@@ -26,57 +28,13 @@ export default class extends Component {
               Create new child offer
             </Link>
           </div>
-          <div key="offer-list-header" className="offer-list__item">
-            <div className="offer-list__item__cell">
-              Name
-            </div>
-            <div className="offer-list__item__cell">
-              Original price
-            </div>
-            <div className="offer-list__item__cell">
-              reduced price
-            </div>
-            <div className="offer-list__item__cell">
-              Product image pointer
-            </div>
+          <div className="offer-list__items">
+            {
+              list.map((next) => {
+                return (<OfferListItem key={next.id} data={next} />)
+              })
+            }
           </div>
-          {
-            list.map((next) => {
-              const { name, originalPrice, reducedPrice, productImagePointer } = next.properties;
-
-              return <div key={next.id} className="offer-list__item">
-                      <div className="offer-list__item__cell">
-                        <Link to={`/offer/${next.id}`}>
-                          {name}
-                        </Link>
-                      </div>
-                      <div className="offer-list__item__cell">
-                        {
-                          originalPrice ? 
-                          `${originalPrice.amount} ${originalPrice.currencyCode}`
-                          :
-                          ''
-                        }
-                      </div>
-                      <div className="offer-list__item__cell">
-                        {
-                          reducedPrice ? 
-                          `${reducedPrice.amount} ${reducedPrice.currencyCode}`
-                          :
-                          ''
-                        }
-                      </div>
-                      <div className="offer-list__item__cell">
-                        {
-                          productImagePointer ? 
-                          `${productImagePointer.itemName}`
-                          :
-                          ''
-                        }
-                      </div>
-                    </div>
-            })
-          }
         </div>
       </div>
     );
