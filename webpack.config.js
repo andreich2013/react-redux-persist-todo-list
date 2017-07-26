@@ -60,4 +60,4 @@ module.exports = Object.assign({
   resolveLoader: {
     modules: [__dirname + '/node_modules']
   }
-}, dev);
+}, prod);
